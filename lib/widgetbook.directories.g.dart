@@ -13,22 +13,38 @@ import 'package:design_note/widgets/container.dart' as _i2;
 import 'package:widgetbook/widgetbook.dart' as _i1;
 
 final directories = <_i1.WidgetbookNode>[
-  _i1.WidgetbookFolder(
-    name: 'widgets',
+  _i1.WidgetbookCategory(
+    name: 'MD3',
     children: [
-      _i1.WidgetbookComponent(
-        name: 'Container',
-        useCases: [
-          _i1.WidgetbookUseCase(
-            name: 'with green color',
-            builder: _i2.greenContainerUseCase,
-          ),
-          _i1.WidgetbookUseCase(
-            name: 'with red color',
-            builder: _i2.redContainerUseCase,
-          ),
+      _i1.WidgetbookFolder(
+        name: 'Buttons',
+        children: [
+          _i1.WidgetbookFolder(
+            name: 'filled-button',
+            children: [
+              _i1.WidgetbookLeafComponent(
+                name: 'Container',
+                useCase: _i1.WidgetbookUseCase(
+                  name: 'Filled Button',
+                  builder: _i2.redContainerUseCase,
+                ),
+              )
+            ],
+          )
         ],
       )
     ],
-  )
+  ),
+  _i1.WidgetbookFolder(
+    name: 'widgets',
+    children: [
+      _i1.WidgetbookLeafComponent(
+        name: 'Container',
+        useCase: _i1.WidgetbookUseCase(
+          name: 'with green color',
+          builder: _i2.greenContainerUseCase,
+        ),
+      )
+    ],
+  ),
 ];
