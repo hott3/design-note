@@ -2,7 +2,14 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "debug",
+            "name": "debug widgetbook",
+            "request": "launch",
+            "type": "dart",
+            "program": "lib/widgetbook.dart",
+            "args": []
+        },
+        {
+            "name": "debug app",
             "request": "launch",
             "type": "dart",
             "program": "lib/main.dart",
