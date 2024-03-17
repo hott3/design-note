@@ -9,24 +9,24 @@
 // **************************************************************************
 
 // ignore_for_file: no_leading_underscores_for_library_prefixes
-import 'package:design_note/widgets/container.dart' as _i2;
+import 'package:design_note/use_case/buttons.dart' as _i2;
 import 'package:widgetbook/widgetbook.dart' as _i1;
 
 final directories = <_i1.WidgetbookNode>[
   _i1.WidgetbookCategory(
-    name: 'MD3',
+    name: 'MD3 Kit',
     children: [
       _i1.WidgetbookFolder(
         name: 'Buttons',
         children: [
           _i1.WidgetbookFolder(
-            name: 'filled-button',
+            name: 'Common buttons',
             children: [
               _i1.WidgetbookLeafComponent(
-                name: 'Container',
+                name: 'ButtonStyleButton',
                 useCase: _i1.WidgetbookUseCase(
-                  name: 'Filled Button',
-                  builder: _i2.redContainerUseCase,
+                  name: 'Common buttons',
+                  builder: _i2.elevatedButtonUseCase,
                 ),
               )
             ],
@@ -34,17 +34,5 @@ final directories = <_i1.WidgetbookNode>[
         ],
       )
     ],
-  ),
-  _i1.WidgetbookFolder(
-    name: 'widgets',
-    children: [
-      _i1.WidgetbookLeafComponent(
-        name: 'Container',
-        useCase: _i1.WidgetbookUseCase(
-          name: 'with green color',
-          builder: _i2.greenContainerUseCase,
-        ),
-      )
-    ],
-  ),
+  )
 ];

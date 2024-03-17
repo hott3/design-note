@@ -11,6 +11,8 @@ dependencies:
   cupertino_icons: ^1.0.6
   flutter:
     sdk: flutter
+  gap: ^3.0.1
+  intersperse: ^2.0.0
   widgetbook: ^3.7.1
   widgetbook_annotation: ^3.1.0
 
