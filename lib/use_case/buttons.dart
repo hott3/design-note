@@ -2,6 +2,7 @@ import 'package:design_note/token.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:intersperse/intersperse.dart';
+import 'package:material_symbols_icons/symbols.dart';
 import 'package:widgetbook/widgetbook.dart';
 import 'package:widgetbook_annotation/widgetbook_annotation.dart' as widgetbook;
 
@@ -22,6 +23,9 @@ Widget elevatedButtonUseCase(BuildContext context) {
   final isDisabled = context.knobs.boolean(
     label: 'Disabled',
   );
+  final isShowIcon = context.knobs.boolean(
+    label: 'Show Icon',
+  );
 
   return Padding(
     padding: EdgeInsets.all(AppToken.spacing.medium),
@@ -29,30 +33,60 @@ Widget elevatedButtonUseCase(BuildContext context) {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         const Text('Filled buttons'),
-        FilledButton(
-          onPressed: isDisabled ? null : () {},
-          child: Text(labelText),
-        ),
+        !isShowIcon
+            ? FilledButton(
+                onPressed: isDisabled ? null : () {},
+                child: Text(labelText),
+              )
+            : FilledButton.icon(
+                onPressed: isDisabled ? null : () {},
+                icon: const Icon(Symbols.add),
+                label: Text(labelText),
+              ),
         const Text('Outlined buttons'),
-        OutlinedButton(
-          onPressed: isDisabled ? null : () {},
-          child: Text(labelText),
-        ),
+        !isShowIcon
+            ? OutlinedButton(
+                onPressed: isDisabled ? null : () {},
+                child: Text(labelText),
+              )
+            : OutlinedButton.icon(
+                onPressed: isDisabled ? null : () {},
+                icon: const Icon(Symbols.add),
+                label: Text(labelText),
+              ),
         const Text('Text buttons'),
-        TextButton(
-          onPressed: isDisabled ? null : () {},
-          child: Text(labelText),
-        ),
+        !isShowIcon
+            ? TextButton(
+                onPressed: isDisabled ? null : () {},
+                child: Text(labelText),
+              )
+            : TextButton.icon(
+                onPressed: isDisabled ? null : () {},
+                icon: const Icon(Symbols.add),
+                label: Text(labelText),
+              ),
         const Text('Elevated buttons'),
-        ElevatedButton(
-          onPressed: isDisabled ? null : () {},
-          child: Text(labelText),
-        ),
+        !isShowIcon
+            ? ElevatedButton(
+                onPressed: isDisabled ? null : () {},
+                child: Text(labelText),
+              )
+            : ElevatedButton.icon(
+                onPressed: isDisabled ? null : () {},
+                icon: const Icon(Symbols.add),
+                label: Text(labelText),
+              ),
         const Text('Tonal buttons'),
-        FilledButton.tonal(
-          onPressed: isDisabled ? null : () {},
-          child: Text(labelText),
-        ),
+        !isShowIcon
+            ? FilledButton.tonal(
+                onPressed: isDisabled ? null : () {},
+                child: Text(labelText),
+              )
+            : FilledButton.tonalIcon(
+                onPressed: isDisabled ? null : () {},
+                icon: const Icon(Symbols.add),
+                label: Text(labelText),
+              ),
       ].intersperse(Gap(AppToken.spacing.medium)).toList(),
     ),
   );
