@@ -25,8 +25,13 @@ class WidgetbookApp extends StatelessWidget {
           name: 'Scaffold & SafeArea',
           builder: (context, child) {
             return Scaffold(
-              body: SafeArea(
-                child: child,
+              body: SingleChildScrollView(
+                child: SizedBox(
+                  width: double.infinity,
+                  child: SafeArea(
+                    child: child,
+                  ),
+                ),
               ),
             );
           },
