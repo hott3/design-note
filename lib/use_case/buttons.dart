@@ -33,7 +33,7 @@ Widget buttonsUseCase(BuildContext context) {
         width: double.infinity,
         child: SafeArea(
           child: Padding(
-            padding: EdgeInsets.all(AppToken.spacing.medium),
+            padding: EdgeInsets.all(Spacing.medium.value),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
@@ -92,7 +92,7 @@ Widget buttonsUseCase(BuildContext context) {
                         icon: const Icon(Symbols.add),
                         label: Text(labelText),
                       ),
-              ].intersperse(Gap(AppToken.spacing.medium)).toList(),
+              ].intersperse(Gap(Spacing.medium.value)).toList(),
             ),
           ),
         ),

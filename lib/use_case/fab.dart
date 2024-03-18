@@ -24,41 +24,27 @@ Widget buttonsUseCase(BuildContext context) {
     // - https://github.com/flutter/flutter/issues/115912
     // - https://github.com/flutter/flutter/pull/138521
     // ColorOption(name: 'Surface', value: colorScheme.surfaceContainerHighest),
-    ColorOption(name: 'Primary', value: colorScheme.primaryContainer),
-    ColorOption(name: 'Secondary', value: colorScheme.secondaryContainer),
-    ColorOption(name: 'Tertiary', value: colorScheme.tertiaryContainer),
+    ColorOption(label: 'Primary', value: colorScheme.primaryContainer),
+    ColorOption(label: 'Secondary', value: colorScheme.secondaryContainer),
+    ColorOption(label: 'Tertiary', value: colorScheme.tertiaryContainer),
   ];
   final style = context.knobs.list(
     label: 'Style',
     initialOption: styleOption[0],
-    labelBuilder: (option) => option.name,
+    labelBuilder: (option) => option.label,
     options: styleOption,
   );
-  final radiusOption = [
-    RadiusOption(name: 'Full', value: AppToken.radius.full),
-    RadiusOption(name: 'Large', value: AppToken.radius.large),
-    RadiusOption(name: 'Medium', value: AppToken.radius.medium),
-    RadiusOption(name: 'None', value: AppToken.radius.none),
-  ];
   final radius = context.knobs.list(
     label: 'Radius',
-    initialOption: radiusOption[2],
+    initialOption: Radius.medium,
     labelBuilder: (option) => option.name,
-    options: radiusOption,
+    options: Radius.values.map((value) => value).toList(),
   );
-  final elevationOption = [
-    ElevationOption(name: '0', value: AppToken.elevation.level0),
-    ElevationOption(name: '1', value: AppToken.elevation.level1),
-    ElevationOption(name: '2', value: AppToken.elevation.level2),
-    ElevationOption(name: '3', value: AppToken.elevation.level3),
-    ElevationOption(name: '4', value: AppToken.elevation.level4),
-    ElevationOption(name: '5', value: AppToken.elevation.level5),
-  ];
   final elevation = context.knobs.list(
     label: 'Elevation',
-    initialOption: elevationOption[3],
+    initialOption: Elevation.level3,
     labelBuilder: (option) => option.name,
-    options: elevationOption,
+    options: Elevation.values.map((value) => value).toList(),
   );
 
   return Scaffold(
@@ -67,7 +53,7 @@ Widget buttonsUseCase(BuildContext context) {
         width: double.infinity,
         child: SafeArea(
           child: Padding(
-            padding: EdgeInsets.all(AppToken.spacing.medium),
+            padding: EdgeInsets.all(Spacing.medium.value),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
@@ -112,12 +98,12 @@ Widget buttonsUseCase(BuildContext context) {
                   label: Row(
                     children: [
                       const Icon(Symbols.edit),
-                      Gap(AppToken.spacing.medium),
+                      Gap(Spacing.medium.value),
                       const Text('Extended FAB'),
                     ],
                   ),
                 ),
-              ].intersperse(Gap(AppToken.spacing.medium)).toList(),
+              ].intersperse(Gap(Spacing.medium.value)).toList(),
             ),
           ),
         ),

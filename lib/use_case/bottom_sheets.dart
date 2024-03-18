@@ -20,17 +20,11 @@ Widget bottomSheetsUseCase(BuildContext context) {
     label: 'Modal',
     initialValue: true,
   );
-  final elevationLevel = context.knobs.list(
-    label: 'Elevation Level',
-    initialOption: const Elevation().level3,
-    options: [
-      const Elevation().level0,
-      const Elevation().level1,
-      const Elevation().level2,
-      const Elevation().level3,
-      const Elevation().level4,
-      const Elevation().level5,
-    ],
+  final elevation = context.knobs.list(
+    label: 'Elevation',
+    initialOption: Elevation.level3,
+    labelBuilder: (option) => option.name,
+    options: Elevation.values.map((value) => value).toList(),
   );
 
   return Scaffold(
@@ -39,7 +33,7 @@ Widget bottomSheetsUseCase(BuildContext context) {
         width: double.infinity,
         child: SafeArea(
           child: Padding(
-            padding: EdgeInsets.all(AppToken.spacing.medium),
+            padding: EdgeInsets.all(Spacing.medium.value),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
@@ -52,7 +46,7 @@ Widget bottomSheetsUseCase(BuildContext context) {
                       showDragHandle: true,
                       barrierColor: isModal ? null : Colors.transparent,
                       // The background changes, but the shadow does not change
-                      elevation: elevationLevel,
+                      elevation: elevation.value,
                       builder: (BuildContext context) {
                         return SizedBox(
                           width: mediaQuery.width,
@@ -70,7 +64,7 @@ Widget bottomSheetsUseCase(BuildContext context) {
                       context: context,
                       showDragHandle: true,
                       // The background changes, but the shadow does not change
-                      elevation: elevationLevel,
+                      elevation: elevation.value,
                       // By setting it, the height of the screen will be full
                       isScrollControlled: true,
                       builder: (BuildContext context) {
@@ -87,7 +81,7 @@ Widget bottomSheetsUseCase(BuildContext context) {
                   '* It does not work even if you specify the Device Addons setting.',
                   style: Theme.of(context).textTheme.labelMedium,
                 ),
-              ].intersperse(Gap(AppToken.spacing.medium)).toList(),
+              ].intersperse(Gap(Spacing.medium.value)).toList(),
             ),
           ),
         ),
@@ -97,7 +91,7 @@ Widget bottomSheetsUseCase(BuildContext context) {
 }
 
 class _BottomSheetContents extends StatelessWidget {
-  const _BottomSheetContents({super.key});
+  const _BottomSheetContents();
 
   @override
   Widget build(BuildContext context) {
@@ -105,7 +99,7 @@ class _BottomSheetContents extends StatelessWidget {
       mainAxisSize: MainAxisSize.min,
       children: <Widget>[
         Padding(
-          padding: EdgeInsets.all(AppToken.spacing.medium),
+          padding: EdgeInsets.all(Spacing.medium.value),
           child: ElevatedButton(
             child: const Text('Close BottomSheet'),
             onPressed: () => Navigator.pop(context),

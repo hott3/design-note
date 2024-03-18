@@ -1,59 +1,42 @@
-class AppToken {
-  AppToken._();
-  static Spacing get spacing => const Spacing();
-  static Elevation get elevation => const Elevation();
-  static Radius get radius => const Radius();
-}
+enum Spacing {
+  none(0),
+  extraSmall(4),
+  small(8),
+  medium(16),
+  large(24);
 
-class Spacing {
-  const Spacing({
-    this.none = 0,
-    this.extraSmall = 4,
-    this.small = 8,
-    this.medium = 16,
-    this.large = 24,
-  });
-  final double none;
-  final double extraSmall;
-  final double small;
-  final double medium;
-  final double large;
+  const Spacing(this.value);
+
+  final double value;
 }
 
 /// https://m3.material.io/styles/shape/shape-scale-tokens
-class Radius {
-  const Radius({
-    this.none = 0,
-    this.extraSmall = 4,
-    this.small = 8,
-    this.medium = 12,
-    this.large = 16,
-    this.extraLarge = 28,
-    this.full = 9999,
-  });
-  final double none;
-  final double extraSmall;
-  final double small;
-  final double medium;
-  final double large;
-  final double extraLarge;
-  final double full;
+enum Radius {
+  none(name: 'None', value: 0),
+  extraSmall(name: 'Extra Small', value: 4),
+  small(name: 'Small', value: 8),
+  medium(name: 'Medium', value: 12),
+  large(name: 'Large', value: 16),
+  extraLarge(name: 'Extra Large', value: 28),
+  full(name: 'Full', value: 9999);
+
+  const Radius({required this.name, required this.value});
+
+  final String name;
+  final double value;
 }
 
 /// https://m3.material.io/styles/elevation/tokens
-class Elevation {
-  const Elevation({
-    this.level0 = 0,
-    this.level1 = 1,
-    this.level2 = 3,
-    this.level3 = 6,
-    this.level4 = 8,
-    this.level5 = 12,
-  });
-  final double level0;
-  final double level1;
-  final double level2;
-  final double level3;
-  final double level4;
-  final double level5;
+enum Elevation {
+  level0(name: 'Level 0', value: 0),
+  level1(name: 'Level 1', value: 1),
+  level2(name: 'Level 2', value: 3),
+  level3(name: 'Level 3', value: 6),
+  level4(name: 'Level 4', value: 8),
+  level5(name: 'Level 5', value: 12);
+
+  const Elevation({required this.name, required this.value});
+
+  final String name;
+  final double value;
 }
