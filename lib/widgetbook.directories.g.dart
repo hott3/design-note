@@ -9,8 +9,10 @@
 // **************************************************************************
 
 // ignore_for_file: no_leading_underscores_for_library_prefixes
-import 'package:design_note/use_case/bottom_sheets.dart' as _i2;
-import 'package:design_note/use_case/buttons.dart' as _i3;
+import 'package:design_note/use_case/bottom_app_bar.dart' as _i2;
+import 'package:design_note/use_case/bottom_sheets.dart' as _i3;
+import 'package:design_note/use_case/buttons.dart' as _i4;
+import 'package:design_note/use_case/fab.dart' as _i5;
 import 'package:widgetbook/widgetbook.dart' as _i1;
 
 final directories = <_i1.WidgetbookNode>[
@@ -18,13 +20,25 @@ final directories = <_i1.WidgetbookNode>[
     name: 'MD3 Kit',
     children: [
       _i1.WidgetbookFolder(
-        name: 'Bottom Sheets',
+        name: 'Bottom app bars',
+        children: [
+          _i1.WidgetbookLeafComponent(
+            name: 'BottomAppBar',
+            useCase: _i1.WidgetbookUseCase(
+              name: 'Bottom app bars',
+              builder: _i2.bottomAppBarUseCase,
+            ),
+          )
+        ],
+      ),
+      _i1.WidgetbookFolder(
+        name: 'Bottom sheets',
         children: [
           _i1.WidgetbookLeafComponent(
             name: 'BottomSheet',
             useCase: _i1.WidgetbookUseCase(
-              name: 'Bottom Sheets',
-              builder: _i2.bottomSheetsUseCase,
+              name: 'Bottom sheets',
+              builder: _i3.bottomSheetsUseCase,
             ),
           )
         ],
@@ -36,7 +50,19 @@ final directories = <_i1.WidgetbookNode>[
             name: 'ButtonStyleButton',
             useCase: _i1.WidgetbookUseCase(
               name: 'Buttons',
-              builder: _i3.buttonsUseCase,
+              builder: _i4.buttonsUseCase,
+            ),
+          )
+        ],
+      ),
+      _i1.WidgetbookFolder(
+        name: 'Floating action buttons',
+        children: [
+          _i1.WidgetbookLeafComponent(
+            name: 'FloatingActionButton',
+            useCase: _i1.WidgetbookUseCase(
+              name: 'Floating action buttons',
+              builder: _i5.buttonsUseCase,
             ),
           )
         ],

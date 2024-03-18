@@ -21,21 +21,6 @@ class WidgetbookApp extends StatelessWidget {
         addon.deviceFrameAddon(),
         addon.materialThemeAddon(),
         addon.textScaleAddon(),
-        BuilderAddon(
-          name: 'Scaffold & SafeArea',
-          builder: (context, child) {
-            return Scaffold(
-              body: SingleChildScrollView(
-                child: SizedBox(
-                  width: double.infinity,
-                  child: SafeArea(
-                    child: child,
-                  ),
-                ),
-              ),
-            );
-          },
-        ),
       ],
     );
   }

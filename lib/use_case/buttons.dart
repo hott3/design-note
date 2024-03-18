@@ -27,67 +27,76 @@ Widget buttonsUseCase(BuildContext context) {
     label: 'Show Icon',
   );
 
-  return Padding(
-    padding: EdgeInsets.all(AppToken.spacing.medium),
-    child: Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        const Text('Filled buttons'),
-        !isShowIcon
-            ? FilledButton(
-                onPressed: isDisabled ? null : () {},
-                child: Text(labelText),
-              )
-            : FilledButton.icon(
-                onPressed: isDisabled ? null : () {},
-                icon: const Icon(Symbols.add),
-                label: Text(labelText),
-              ),
-        const Text('Outlined buttons'),
-        !isShowIcon
-            ? OutlinedButton(
-                onPressed: isDisabled ? null : () {},
-                child: Text(labelText),
-              )
-            : OutlinedButton.icon(
-                onPressed: isDisabled ? null : () {},
-                icon: const Icon(Symbols.add),
-                label: Text(labelText),
-              ),
-        const Text('Text buttons'),
-        !isShowIcon
-            ? TextButton(
-                onPressed: isDisabled ? null : () {},
-                child: Text(labelText),
-              )
-            : TextButton.icon(
-                onPressed: isDisabled ? null : () {},
-                icon: const Icon(Symbols.add),
-                label: Text(labelText),
-              ),
-        const Text('Elevated buttons'),
-        !isShowIcon
-            ? ElevatedButton(
-                onPressed: isDisabled ? null : () {},
-                child: Text(labelText),
-              )
-            : ElevatedButton.icon(
-                onPressed: isDisabled ? null : () {},
-                icon: const Icon(Symbols.add),
-                label: Text(labelText),
-              ),
-        const Text('Tonal buttons'),
-        !isShowIcon
-            ? FilledButton.tonal(
-                onPressed: isDisabled ? null : () {},
-                child: Text(labelText),
-              )
-            : FilledButton.tonalIcon(
-                onPressed: isDisabled ? null : () {},
-                icon: const Icon(Symbols.add),
-                label: Text(labelText),
-              ),
-      ].intersperse(Gap(AppToken.spacing.medium)).toList(),
+  return Scaffold(
+    body: SingleChildScrollView(
+      child: SizedBox(
+        width: double.infinity,
+        child: SafeArea(
+          child: Padding(
+            padding: EdgeInsets.all(AppToken.spacing.medium),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                const Text('Filled buttons'),
+                !isShowIcon
+                    ? FilledButton(
+                        onPressed: isDisabled ? null : () {},
+                        child: Text(labelText),
+                      )
+                    : FilledButton.icon(
+                        onPressed: isDisabled ? null : () {},
+                        icon: const Icon(Symbols.add),
+                        label: Text(labelText),
+                      ),
+                const Text('Outlined buttons'),
+                !isShowIcon
+                    ? OutlinedButton(
+                        onPressed: isDisabled ? null : () {},
+                        child: Text(labelText),
+                      )
+                    : OutlinedButton.icon(
+                        onPressed: isDisabled ? null : () {},
+                        icon: const Icon(Symbols.add),
+                        label: Text(labelText),
+                      ),
+                const Text('Text buttons'),
+                !isShowIcon
+                    ? TextButton(
+                        onPressed: isDisabled ? null : () {},
+                        child: Text(labelText),
+                      )
+                    : TextButton.icon(
+                        onPressed: isDisabled ? null : () {},
+                        icon: const Icon(Symbols.add),
+                        label: Text(labelText),
+                      ),
+                const Text('Elevated buttons'),
+                !isShowIcon
+                    ? ElevatedButton(
+                        onPressed: isDisabled ? null : () {},
+                        child: Text(labelText),
+                      )
+                    : ElevatedButton.icon(
+                        onPressed: isDisabled ? null : () {},
+                        icon: const Icon(Symbols.add),
+                        label: Text(labelText),
+                      ),
+                const Text('Tonal buttons'),
+                !isShowIcon
+                    ? FilledButton.tonal(
+                        onPressed: isDisabled ? null : () {},
+                        child: Text(labelText),
+                      )
+                    : FilledButton.tonalIcon(
+                        onPressed: isDisabled ? null : () {},
+                        icon: const Icon(Symbols.add),
+                        label: Text(labelText),
+                      ),
+              ].intersperse(Gap(AppToken.spacing.medium)).toList(),
+            ),
+          ),
+        ),
+      ),
     ),
   );
 }

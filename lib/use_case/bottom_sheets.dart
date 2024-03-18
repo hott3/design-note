@@ -10,8 +10,8 @@ import 'package:widgetbook_annotation/widgetbook_annotation.dart' as widgetbook;
 /// https://m3.material.io/components
 
 @widgetbook.UseCase(
-  path: '[MD3 Kit]/Bottom Sheets',
-  name: 'Bottom Sheets',
+  path: '[MD3 Kit]/Bottom sheets',
+  name: 'Bottom sheets',
   type: BottomSheet,
 )
 Widget bottomSheetsUseCase(BuildContext context) {
@@ -33,56 +33,65 @@ Widget bottomSheetsUseCase(BuildContext context) {
     ],
   );
 
-  return Padding(
-    padding: EdgeInsets.all(AppToken.spacing.medium),
-    child: Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        const Text('Bottom Sheet'),
-        ElevatedButton(
-          child: const Text('Show Bottom Sheet'),
-          onPressed: () {
-            showModalBottomSheet<void>(
-              context: context,
-              showDragHandle: true,
-              barrierColor: isModal ? null : Colors.transparent,
-              // The background changes, but the shadow does not change
-              elevation: elevationLevel,
-              builder: (BuildContext context) {
-                return SizedBox(
-                  width: mediaQuery.width,
-                  child: const _BottomSheetContents(),
-                );
-              },
-            );
-          },
+  return Scaffold(
+    body: SingleChildScrollView(
+      child: SizedBox(
+        width: double.infinity,
+        child: SafeArea(
+          child: Padding(
+            padding: EdgeInsets.all(AppToken.spacing.medium),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                const Text('Bottom Sheet'),
+                ElevatedButton(
+                  child: const Text('Show Bottom Sheet'),
+                  onPressed: () {
+                    showModalBottomSheet<void>(
+                      context: context,
+                      showDragHandle: true,
+                      barrierColor: isModal ? null : Colors.transparent,
+                      // The background changes, but the shadow does not change
+                      elevation: elevationLevel,
+                      builder: (BuildContext context) {
+                        return SizedBox(
+                          width: mediaQuery.width,
+                          child: const _BottomSheetContents(),
+                        );
+                      },
+                    );
+                  },
+                ),
+                const Text('Full-screen Bottom Sheet'),
+                ElevatedButton(
+                  child: const Text('Show Bottom Sheet'),
+                  onPressed: () {
+                    showModalBottomSheet<void>(
+                      context: context,
+                      showDragHandle: true,
+                      // The background changes, but the shadow does not change
+                      elevation: elevationLevel,
+                      // By setting it, the height of the screen will be full
+                      isScrollControlled: true,
+                      builder: (BuildContext context) {
+                        return SizedBox(
+                          height: mediaQuery.height,
+                          width: mediaQuery.width,
+                          child: const _BottomSheetContents(),
+                        );
+                      },
+                    );
+                  },
+                ),
+                Text(
+                  '* It does not work even if you specify the Device Addons setting.',
+                  style: Theme.of(context).textTheme.labelMedium,
+                ),
+              ].intersperse(Gap(AppToken.spacing.medium)).toList(),
+            ),
+          ),
         ),
-        const Text('Full-screen Bottom Sheet'),
-        ElevatedButton(
-          child: const Text('Show Bottom Sheet'),
-          onPressed: () {
-            showModalBottomSheet<void>(
-              context: context,
-              showDragHandle: true,
-              // The background changes, but the shadow does not change
-              elevation: elevationLevel,
-              // By setting it, the height of the screen will be full
-              isScrollControlled: true,
-              builder: (BuildContext context) {
-                return SizedBox(
-                  height: mediaQuery.height,
-                  width: mediaQuery.width,
-                  child: const _BottomSheetContents(),
-                );
-              },
-            );
-          },
-        ),
-        Text(
-          '* It does not work even if you specify the Device Addons setting.',
-          style: Theme.of(context).textTheme.labelMedium,
-        ),
-      ].intersperse(Gap(AppToken.spacing.medium)).toList(),
+      ),
     ),
   );
 }
