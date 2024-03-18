@@ -11,11 +11,11 @@ import 'package:widgetbook_annotation/widgetbook_annotation.dart' as widgetbook;
 /// https://m3.material.io/components
 
 @widgetbook.UseCase(
-  path: '[MD3 Kit]/Buttons/Common buttons',
-  name: 'Common buttons',
+  path: '[MD3 Kit]/Buttons',
+  name: 'Buttons',
   type: ButtonStyleButton,
 )
-Widget elevatedButtonUseCase(BuildContext context) {
+Widget buttonsUseCase(BuildContext context) {
   final labelText = context.knobs.string(
     label: 'Label Text',
     initialValue: 'Button',

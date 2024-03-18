@@ -42,3 +42,21 @@ class Radius {
   final double extraLarge;
   final double full;
 }
+
+/// https://m3.material.io/styles/elevation/tokens
+class Elevation {
+  const Elevation({
+    this.level0 = 0,
+    this.level1 = 1,
+    this.level2 = 3,
+    this.level3 = 6,
+    this.level4 = 8,
+    this.level5 = 12,
+  });
+  final double level0;
+  final double level1;
+  final double level2;
+  final double level3;
+  final double level4;
+  final double level5;
+}

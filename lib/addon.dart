@@ -3,9 +3,11 @@ import 'package:widgetbook/widgetbook.dart';
 
 DeviceFrameAddon deviceFrameAddon() {
   return DeviceFrameAddon(
+    initialDevice: Devices.ios.iPhone13,
     devices: [
       Devices.ios.iPhone13,
       Devices.ios.iPhone13ProMax,
+      Devices.android.mediumPhone,
     ],
   );
 }
