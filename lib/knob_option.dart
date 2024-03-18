@@ -2,30 +2,20 @@ import 'package:flutter/material.dart';
 
 class ColorOption {
   const ColorOption({
-    required this.name,
+    required this.label,
     required this.value,
   });
 
-  final String name;
+  final String label;
   final Color value;
 }
 
-class RadiusOption {
-  const RadiusOption({
-    required this.name,
+class FloatingActionButtonLocationOption {
+  const FloatingActionButtonLocationOption({
+    required this.label,
     required this.value,
   });
 
-  final String name;
-  final double value;
-}
-
-class ElevationOption {
-  const ElevationOption({
-    required this.name,
-    required this.value,
-  });
-
-  final String name;
-  final double value;
+  final String label;
+  final FloatingActionButtonLocation value;
 }
