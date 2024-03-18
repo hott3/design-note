@@ -1,11 +1,8 @@
 class AppToken {
   AppToken._();
-
-  static const Spacing _spacing = Spacing();
-  static const Radius _radius = Radius();
-
-  static Spacing get spacing => _spacing;
-  static Radius get radius => _radius;
+  static Spacing get spacing => const Spacing();
+  static Elevation get elevation => const Elevation();
+  static Radius get radius => const Radius();
 }
 
 class Spacing {
@@ -32,7 +29,7 @@ class Radius {
     this.medium = 12,
     this.large = 16,
     this.extraLarge = 28,
-    this.full = double.infinity,
+    this.full = 9999,
   });
   final double none;
   final double extraSmall;
