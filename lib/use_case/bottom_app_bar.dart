@@ -1,4 +1,3 @@
-import 'package:design_note/knob_option.dart';
 import 'package:design_note/token.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
@@ -27,23 +26,23 @@ Widget bottomAppBarUseCase(BuildContext context) {
   final fabLocationOption = [
     // > Do not place a FAB outside of a bottom app bar, as it makes it harder to reach
     // > https://m3.material.io/components/bottom-app-bar/guidelines#54eba260-788e-462f-96f0-39679f6b35e5
-    const FloatingActionButtonLocationOption(
+    const _FloatingActionButtonLocationOption(
       label: 'endContained',
       value: FloatingActionButtonLocation.endContained,
     ),
-    FloatingActionButtonLocationOption(
+    _FloatingActionButtonLocationOption(
       label: 'End Docked',
       value: isSmall
           ? FloatingActionButtonLocation.miniEndDocked
           : FloatingActionButtonLocation.endDocked,
     ),
-    FloatingActionButtonLocationOption(
+    _FloatingActionButtonLocationOption(
       label: 'Center Docked',
       value: isSmall
           ? FloatingActionButtonLocation.miniCenterDocked
           : FloatingActionButtonLocation.centerDocked,
     ),
-    FloatingActionButtonLocationOption(
+    _FloatingActionButtonLocationOption(
       label: 'Start Docked',
       value: isSmall
           ? FloatingActionButtonLocation.miniStartDocked
@@ -100,4 +99,14 @@ Widget bottomAppBarUseCase(BuildContext context) {
         : null,
     floatingActionButtonLocation: fabLocation.value,
   );
+}
+
+class _FloatingActionButtonLocationOption {
+  const _FloatingActionButtonLocationOption({
+    required this.label,
+    required this.value,
+  });
+
+  final String label;
+  final FloatingActionButtonLocation value;
 }

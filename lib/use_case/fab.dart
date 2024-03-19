@@ -1,4 +1,3 @@
-import 'package:design_note/knob_option.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:intersperse/intersperse.dart';
@@ -23,10 +22,10 @@ Widget buttonsUseCase(BuildContext context) {
     // Planning to confirm the issues to get SurfaceContainerHighest
     // - https://github.com/flutter/flutter/issues/115912
     // - https://github.com/flutter/flutter/pull/138521
-    // ColorOption(name: 'Surface', value: colorScheme.surfaceContainerHighest),
-    ColorOption(label: 'Primary', value: colorScheme.primaryContainer),
-    ColorOption(label: 'Secondary', value: colorScheme.secondaryContainer),
-    ColorOption(label: 'Tertiary', value: colorScheme.tertiaryContainer),
+    // _StyleOption(name: 'Surface', value: colorScheme.surfaceContainerHighest),
+    _StyleOption(label: 'Primary', value: colorScheme.primaryContainer),
+    _StyleOption(label: 'Secondary', value: colorScheme.secondaryContainer),
+    _StyleOption(label: 'Tertiary', value: colorScheme.tertiaryContainer),
   ];
   final style = context.knobs.list(
     label: 'Style',
@@ -110,4 +109,14 @@ Widget buttonsUseCase(BuildContext context) {
       ),
     ),
   );
+}
+
+class _StyleOption {
+  const _StyleOption({
+    required this.label,
+    required this.value,
+  });
+
+  final String label;
+  final Color value;
 }
