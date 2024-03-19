@@ -25,6 +25,8 @@ Widget bottomAppBarUseCase(BuildContext context) {
     label: 'Small FAB',
   );
   final fabLocationOption = [
+    // > Do not place a FAB outside of a bottom app bar, as it makes it harder to reach
+    // > https://m3.material.io/components/bottom-app-bar/guidelines#54eba260-788e-462f-96f0-39679f6b35e5
     const FloatingActionButtonLocationOption(
       label: 'endContained',
       value: FloatingActionButtonLocation.endContained,
@@ -47,24 +49,6 @@ Widget bottomAppBarUseCase(BuildContext context) {
           ? FloatingActionButtonLocation.miniStartDocked
           : FloatingActionButtonLocation.startDocked,
     ),
-    FloatingActionButtonLocationOption(
-      label: 'End Float',
-      value: isSmall
-          ? FloatingActionButtonLocation.miniEndFloat
-          : FloatingActionButtonLocation.endFloat,
-    ),
-    FloatingActionButtonLocationOption(
-      label: 'Center Float',
-      value: isSmall
-          ? FloatingActionButtonLocation.miniCenterFloat
-          : FloatingActionButtonLocation.centerFloat,
-    ),
-    FloatingActionButtonLocationOption(
-      label: 'Start Float',
-      value: isSmall
-          ? FloatingActionButtonLocation.miniStartFloat
-          : FloatingActionButtonLocation.startFloat,
-    ),
   ];
   final fabLocation = context.knobs.list(
     label: 'FAB Location',
@@ -73,8 +57,7 @@ Widget bottomAppBarUseCase(BuildContext context) {
     options: fabLocationOption,
   );
   final isElevation = context.knobs.boolean(
-    label: 'Bottom App Bar Elevation',
-    initialValue: true,
+    label: 'FAB Elevation',
   );
 
   return Scaffold(
@@ -90,7 +73,6 @@ Widget bottomAppBarUseCase(BuildContext context) {
       ),
     ),
     bottomNavigationBar: BottomAppBar(
-      elevation: isElevation ? null : Elevation.level0.value,
       child: Row(
         children: <Widget>[
           IconButton(
