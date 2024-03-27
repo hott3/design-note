@@ -1,9 +1,24 @@
 enum Spacing {
+  /// This value is 0
   none(0),
+
+  /// This value is 4
   extraSmall(4),
+
+  /// This value is 8
   small(8),
+
+  /// This value is 12
+  underMedium(12),
+
+  /// This value is 16
   medium(16),
-  large(24);
+
+  /// This value is 24
+  large(24),
+
+  /// This value is 32
+  extraLarge(32);
 
   const Spacing(this.value);
 
