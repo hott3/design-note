@@ -131,7 +131,6 @@ enum _Style {
 
 class _StackedCardContentLayer extends StatelessWidget {
   const _StackedCardContentLayer({
-    super.key,
     required this.header,
     required this.subheader,
     required this.title,
@@ -234,7 +233,6 @@ class _StackedCardContentLayer extends StatelessWidget {
 
 class _HorizontalCardContentLayer extends StatelessWidget {
   const _HorizontalCardContentLayer({
-    super.key,
     required this.header,
     required this.subheader,
   });
@@ -264,7 +262,7 @@ class _HorizontalCardContentLayer extends StatelessWidget {
 }
 
 class _Monogram extends StatelessWidget {
-  const _Monogram({super.key});
+  const _Monogram();
 
   @override
   Widget build(BuildContext context) {
@@ -291,7 +289,7 @@ class _Monogram extends StatelessWidget {
 }
 
 class _Text extends StatelessWidget {
-  const _Text({super.key, required this.header, required this.subheader});
+  const _Text({required this.header, required this.subheader});
 
   final String header;
   final String subheader;
@@ -324,7 +322,7 @@ class _Text extends StatelessWidget {
 }
 
 class _IconButton extends StatelessWidget {
-  const _IconButton({super.key});
+  const _IconButton();
 
   @override
   Widget build(BuildContext context) {
